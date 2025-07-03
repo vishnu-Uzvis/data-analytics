@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* --- START: Custom styles for react-date-range --- */
+/* Make static range labels visible on dark backgrounds */
+.rdrStaticRangeLabel {
+  color: #3b82f6 !important; /* Tailwind blue-500 */
+  font-weight: bold;
+}
+
+/* Ensure ALL day numbers are readable by default (on white background) */
+/* This will affect days not in selection, hover, or start/end */
+.rdrDay span {
+    color: #000 !important; /* Force black for general visibility */
+}
+
+/* Adjust color of the calendar header (month/year dropdowns) */
+.rdrMonthAndYearPickers,
+.rdrWeekDays {
+    color: #333 !important; /* Darker text for headers */
+}
+
+/* FIX FOR SELECTION VISIBILITY */
+
+/* Style for the solid circle/square on the selected start/end date */
+.rdrDay.rdrDaySelected .rdrDayNumber span:after,
+.rdrDay.rdrDayStartPreview .rdrDayNumber span:after,
+.rdrDay.rdrDayEndPreview .rdrDayNumber span:after {
+    background: #3b82f6 !important; /* Solid blue background */
+}
+
+/* Style for the text of the selected start/end date (inside the solid circle) */
+.rdrDay.rdrDaySelected .rdrDayNumber span,
+.rdrDay.rdrDayStartPreview .rdrDayNumber span,
+.rdrDay.rdrDayEndPreview .rdrDayNumber span {
+    color: white !important; /* Text color is white over solid blue */
+}
+
+
+/* Style for the transparent range fill (between start and end dates) */
+.rdrDayInPreview {
+    background-color: rgba(59, 130, 246, 0.2) !important; /* Lighter, transparent blue for the fill */
+}
+
+/* --- FIX: Make day numbers within the selected range white --- */
+.rdrDayInPreview .rdrDayNumber span {
+    color: white !important; /* Text color is white over transparent blue range */
+}
+
+/* Style for the hover effect background */
+.rdrDay.rdrDayHovered .rdrDayNumber span:after {
+    background-color: rgba(59, 130, 246, 0.4) !important; /* Slightly darker transparent blue for hover */
+}
+
+/* Ensure the text on hovered dates is visible */
+.rdrDay.rdrDayHovered .rdrDayNumber span {
+    color: white !important; /* Make text white on hover */
+}
+
+
+/* If the arrow buttons are not visible */
+.rdrNextPrevButton i {
+    background-color: #3b82f6 !important; /* Make arrows visible */
+}
+/* --- END: Custom styles for react-date-range --- */
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

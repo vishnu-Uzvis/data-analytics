@@ -1,0 +1,19 @@
+Python
+
+pycache/ *.pyc *.pyo *.pyd .Python env/ venv/ ENV/
+
+Django
+
+*.log *.pot *.pyc db.sqlite3 media/
+
+Environment variables
+
+.env
+
+VS Code
+
+.vscode/
+
+OS generated files
+
+.DS_Store Thumbs.db
